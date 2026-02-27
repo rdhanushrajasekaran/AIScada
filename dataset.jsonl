@@ -1,0 +1,644 @@
+{"messages":[
+  {
+    "role":"user",
+    "content":"Generate a data center cooling monitoring screen with DCIM theme. Show 10 CRAH units with supply/return temps, fan speeds, and valve positions. Include room temperature map and PUE. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"data_center_cooling\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"dcim\",\n    \"layout\": \"room_layout\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"dc_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Data Center Cooling - Server Room A\",\n      \"pue\": 1.45,\n      \"total_cooling\": 650,\n      \"cooling_unit\": \"kW\"\n    },\n    {\n      \"id\": \"temperature_map\",\n      \"type\": \"thermal_map\",\n      \"hot_aisle\": [75, 78, 76, 74],\n      \"cold_aisle\": [65, 64, 63, 65],\n      \"unit\": \"°F\"\n    },\n    {\n      \"id\": \"crah_units\",\n      \"type\": \"crah_grid\",\n      \"units\": 10,\n      \"unit_names\": [\"CRAH-01\", \"CRAH-02\", \"CRAH-03\", \"CRAH-04\", \"CRAH-05\", \"CRAH-06\", \"CRAH-07\", \"CRAH-08\", \"CRAH-09\", \"CRAH-10\"],\n      \"supply_temps\": [55, 54, 56, 55, 53, 55, 56, 54, 55, 57],\n      \"return_temps\": [75, 74, 76, 75, 73, 75, 76, 74, 75, 77],\n      \"temp_unit\": \"°F\",\n      \"fan_speeds\": [65, 72, 58, 62, 80, 68, 55, 70, 63, 45],\n      \"speed_unit\": \"%\",\n      \"valve_positions\": [45, 52, 38, 42, 60, 48, 35, 50, 43, 25]\n    },\n    {\n      \"id\": \"chilled_water\",\n      \"type\": \"chw_panel\",\n      \"supply_temp\": 45,\n      \"return_temp\": 55,\n      \"temp_unit\": \"°F\",\n      \"flow_rate\": 850,\n      \"flow_unit\": \"GPM\",\n      \"delta_t\": 10\n    },\n    {\n      \"id\": \"efficiency_metrics\",\n      \"type\": \"efficiency_display\",\n      \"metrics\": [\n        { \"name\": \"PUE\", \"value\": 1.45 },\n        { \"name\": \"CLF\", \"value\": 0.35 },\n        { \"name\": \"PLF\", \"value\": 0.85 },\n        { \"name\": \"RTI\", \"value\": 92 }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Create a building access control screen with security theme. Show 20 doors with status, 4 card readers, and elevator access floors. Include alarm zones and visitor count. Resolution 1680x1050."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"access_control\",\n    \"resolution\": { \"width\": 1680, \"height\": 1050 },\n    \"theme\": \"security\",\n    \"layout\": \"floor_plan\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"security_header\",\n      \"type\": \"header\",\n      \"title\": \"Building Access Control - Main Campus\",\n      \"occupants\": 1250,\n      \"visitors\": 45\n    },\n    {\n      \"id\": \"door_status\",\n      \"type\": \"door_grid\",\n      \"doors\": 20,\n      \"door_names\": [\"Main Entrance\", \"Lobby A\", \"Lobby B\", \"Stair 1\", \"Stair 2\", \"Elevator Lobby\", \"Office Wing\", \"Lab Access\", \"Server Room\", \"Mechanical\", \"Electrical\", \"Warehouse\", \"Loading Dock\", \"Cafeteria\", \"Gym\", \"Conference A\", \"Conference B\", \"Executive Suite\", \"HR Office\", \"IT Office\"],\n      \"door_statuses\": [\"closed\", \"closed\", \"closed\", \"closed\", \"closed\", \"closed\", \"closed\", \"secured\", \"secured\", \"closed\", \"closed\", \"closed\", \"open\", \"closed\", \"closed\", \"closed\", \"closed\", \"secured\", \"closed\", \"secured\"]\n    },\n    {\n      \"id\": \"card_readers\",\n      \"type\": \"reader_panel\",\n      \"readers\": [\n        { \"location\": \"Main Lobby\", \"last_access\": \"John Doe, 08:45\" },\n        { \"location\": \"Elevator Bank\", \"last_access\": \"Jane Smith, 08:52\" },\n        { \"location\": \"Lab Entry\", \"last_access\": \"Dr. Wilson, 08:30\" },\n        { \"location\": \"Parking Garage\", \"last_access\": \"Visitor #12, 08:15\" }\n      ]\n    },\n    {\n      \"id\": \"elevator_control\",\n      \"type\": \"elevator_access\",\n      \"elevators\": 4,\n      \"restricted_floors\": [\"5\", \"6\", \"7\", \"8\"],\n      \"public_floors\": [\"1\", \"2\", \"3\", \"4\"]\n    },\n    {\n      \"id\": \"alarm_zones\",\n      \"type\": \"zone_monitor\",\n      \"zones\": [\n        { \"name\": \"Perimeter\", \"status\": \"secure\" },\n        { \"name\": \"Server Room\", \"status\": \"secure\" },\n        { \"name\": \"Loading Dock\", \"status\": \"active\" },\n        { \"name\": \"Roof Access\", \"status\": \"secure\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Generate a fire alarm system screen with life safety theme. Show 3 panels with device counts, 150 detectors, 50 pull stations, and alarm zones. Include system status and event log. Resolution 1366x768."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"fire_alarm\",\n    \"resolution\": { \"width\": 1366, \"height\": 768 },\n    \"theme\": \"life_safety\",\n    \"layout\": \"panel_view\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"fire_header\",\n      \"type\": \"header\",\n      \"title\": \"Fire Alarm System - Building 42\",\n      \"system_status\": \"normal\",\n      \"last_test\": \"2024-01-15\"\n    },\n    {\n      \"id\": \"control_panels\",\n      \"type\": \"panel_status\",\n      \"panels\": 3,\n      \"panel_names\": [\"Main Panel - Lobby\", \"Remote 1 - East Wing\", \"Remote 2 - West Wing\"],\n      \"panel_status\": [\"normal\", \"normal\", \"normal\"],\n      \"device_counts\": [85, 42, 73],\n      \"device_total\": 200\n    },\n    {\n      \"id\": \"device_summary\",\n      \"type\": \"device_counts\",\n      \"detectors\": 150,\n      \"pull_stations\": 50,\n      \"modules\": 25,\n      \"horns\": 60,\n      \"strobes\": 60,\n      \"total\": 345\n    },\n    {\n      \"id\": \"alarm_zones\",\n      \"type\": \"zone_status\",\n      \"zones\": 12,\n      \"zone_names\": [\"Zone 1 Lobby\", \"Zone 2 Offices\", \"Zone 3 Lab\", \"Zone 4 Warehouse\", \"Zone 5 Mech\", \"Zone 6 Storage\"],\n      \"zone_statuses\": [\"normal\", \"normal\", \"normal\", \"normal\", \"normal\", \"normal\"]\n    },\n    {\n      \"id\": \"event_log\",\n      \"type\": \"log_display\",\n      \"events\": [\n        { \"time\": \"08:15\", \"event\": \"System Test - All Normal\" },\n        { \"time\": \"07:30\", \"event\": \"Detector Cleaning - Zone 3\" },\n        { \"time\": \"06:45\", \"event\": \"System Power Normal\" }\n      ],\n      \"max_events\": 20\n    },\n    {\n      \"id\": "trouble_summary",\n      \"type\": \"trouble_panel\",\n      \"troubles\": 0,\n      \"supervisory\": 0,\n      \"alarms\": 0\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Create a solar farm monitoring screen with renewable energy theme. Show 5000 panels in array view, 50 inverters, grid connection status, and cumulative generation. Include weather data and efficiency. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"solar_farm\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"renewable\",\n    \"layout\": \"array_diagram\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"plant_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Solar Farm - Array 3\",\n      \"total_power\": 1250,\n      \"power_unit\": \"kW\",\n      \"capacity\": 1500\n    },\n    {\n      \"id\": \"array_overview\",\n      \"type\": \"panel_array\",\n      \"total_panels\": 5000,\n      \"active_panels\": 4985,\n      \"string_voltage\": 850,\n      \"string_current\": 1250,\n      \"irradiance\": 825,\n      \"irradiance_unit\": \"W/m²\"\n    },\n    {\n      \"id\": \"inverter_status\",\n      \"type\": \"inverter_grid\",\n      \"inverters\": 50,\n      \"inverter_names\": [\"INV-01\" through \"INV-50\"],\n      \"inverter_status\": \"operational\",\n      \"failed_inverters\": 1,\n      \"efficiency\": 97.5,\n      \"efficiency_unit\": \"%\"\n    },\n    {\n      \"id\": \"grid_connection\",\n      \"type\": \"grid_panel\",\n      \"grid_status\": \"connected\",\n      \"export_power\": 1150,\n      \"export_unit\": \"kW\",\n      \"grid_frequency\": 60.0,\n      \"frequency_unit\": \"Hz\",\n      \"power_factor\": 0.98\n    },\n    {\n      \"id\": \"generation_metrics\",\n      \"type\": \"energy_panel\",\n      \"today_generation\": 8750,\n      \"today_unit\": \"kWh\",\n      \"month_generation\": 245000,\n      \"year_generation\": 2850000,\n      \"co2_saved\": 1425,\n      \"co2_unit\": \"tons\"\n    },\n    {\n      \"id\": \"weather_station\",\n      \"type\": \"weather_panel\",\n      \"temperature\": 28,\n      \"temp_unit\": \"°C\",\n      \"wind_speed\": 12,\n      \"wind_unit\": \"km/h\",\n      \"cloud_cover\": 15,\n      \"cloud_unit\": \"%\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Design a wastewater treatment plant overview with environmental theme. Show primary treatment, secondary treatment, and tertiary stages. Include flow rates and quality parameters at each stage. Resolution 1600x900."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"wwtp_overview\",\n    \"resolution\": { \"width\": 1600, \"height\": 900 },\n    \"theme\": \"environmental\",\n    \"layout\": \"process_flow\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"plant_header\",\n      \"type\": \"header\",\n      \"title\": \"Wastewater Treatment Plant - Overview\",\n      \"plant_flow\": 12.5,\n      \"flow_unit\": \"MGD\"\n    },\n    {\n      \"id\": \"primary_treatment\",\n      \"type\": \"treatment_stage\",\n      \"stage_name\": \"Primary Treatment\",\n      \"influent_bod\": 220,\n      \"effluent_bod\": 140,\n      \"bod_unit\": \"mg/L\",\n      \"influent_tss\": 250,\n      \"effluent_tss\": 125,\n      \"tss_unit\": \"mg/L\",\n      \"flow\": 12.5,\n      "removal_efficiency\": 45\n    },\n    {\n      \"id\": \"secondary_treatment\",\n      \"type\": \"treatment_stage\",\n      \"stage_name\": \"Secondary Treatment\",\n      \"influent_bod\": 140,\n      \"effluent_bod\": 15,\n      \"bod_unit\": \"mg/L\",\n      \"influent_tss\": 125,\n      \"effluent_tss\": 20,\n      \"tss_unit\": \"mg/L\",\n      \"do_level\": 2.5,\n      \"do_unit\": \"mg/L\",\n      \"flow\": 12.5,\n      \"removal_efficiency\": 89\n    },\n    {\n      \"id\": \"tertiary_treatment\",\n      \"type\": \"treatment_stage\",\n      \"stage_name\": \"Tertiary Treatment\",\n      \"influent_bod\": 15,\n      \"effluent_bod\": 5,\n      \"bod_unit\": \"mg/L\",\n      \"influent_tss\": 20,\n      \"effluent_tss\": 5,\n      \"tss_unit\": \"mg/L\",\n      \"phosphorus\": 0.5,\n      \"phosphorus_unit\": \"mg/L\",\n      \"flow\": 12.5,\n      \"removal_efficiency\": 67\n    },\n    {\n      \"id\": \"discharge_quality\",\n      \"type\": \"quality_panel\",\n      \"parameters\": [\n        { \"name\": \"Final BOD\", \"value\": 5, \"limit\": 10 },\n        { \"name\": \"Final TSS\", \"value\": 5, \"limit\": 10 },\n        { \"name\": \"Ammonia\", \"value\": 1.2, \"limit\": 3 },\n        { \"name\": \"Total Phosphorus\", \"value\": 0.5, \"limit\": 1 }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Generate a pharmaceutical water system screen with GMP theme. Show WFI (Water For Injection) generation, storage, and distribution loops. Include conductivity, TOC, and temperature. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"pharma_water\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"gmp\",\n    \"layout\": \"loop_diagram\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"water_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"WFI System - Purified Water Distribution\",\n      \"system_status\": \"operational\"\n    },\n    {\n      \"id\": \"generation\",\n      \"type\": \"generation_unit\",\n      \"unit_name\": \"WFI Still - Multi-Effect\",\n      \"production_rate\": 450,\n      \"rate_unit\": \"L/hr\",\n      \"feed_temp\": 85,\n      \"temp_unit\": \"°C\",\n      \"steam_pressure\": 45,\n      \"pressure_unit\": \"psi\"\n    },\n    {\n      \"id\": \"storage_tank\",\n      \"type\": \"tank_monitor\",\n      \"tank_name\": \"WFI Storage Tank T-101\",\n      \"level\": 72,\n      \"level_unit\": \"%\",\n      \"volume\": 1800,\n      \"volume_unit\": \"L\",\n      \"temperature\": 85,\n      \"temp_unit\": \"°C\",\n      \"blanket_pressure\": 12,\n      \"pressure_unit\": \"psi\"\n    },\n    {\n      \"id\": \"distribution_loops\",\n      \"type\": \"loop_panel\",\n      \"loops\": 3,\n      \"loop_names\": [\"Loop A - Manufacturing\", \"Loop B - Lab\", \"Loop C - CIP\"],\n      \"loop_status\": [\"recirculating\", \"recirculating\", \"recirculating\"],\n      \"return_temp\": [84, 83, 85],\n      \"temp_unit\": \"°C\",\n      \"flow_rate\": [180, 65, 95],\n      \"flow_unit\": \"L/min\",\n      \"conductivity\": [0.8, 0.7, 0.9],\n      \"conductivity_unit\": \"µS/cm\"\n    },\n    {\n      \"id\": \"quality_monitoring\",\n      \"type\": \"quality_display\",\n      \"parameters\": [\n        { \"name\": \"Conductivity\", \"value\": 0.8, \"limit\": 1.3 },\n        { \"name\": \"TOC\", \"value\": 125, \"unit\": \"ppb\", \"limit\": 500 },\n        { \"name\": \"Bacteria\", \"value\": 0, \"unit\": \"CFU/100mL\", \"limit\": 10 },\n        { \"name\": \"Endotoxins\", \"value\": 0.05, \"unit\": \"EU/mL\", \"limit\": 0.25 }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Create a cement plant kiln control screen with heavy industry theme. Show kiln feed, fuel rate, burning zone temperature, and cooler status. Include emissions monitoring and production rate. Resolution 1680x1050."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"cement_kiln\",\n    \"resolution\": { \"width\": 1680, \"height\": 1050 },\n    \"theme\": \"heavy_industry\",\n    \"layout\": \"kiln_diagram\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"kiln_header\",\n      \"type\": \"header\",\n      \"title\": \"Kiln Line 2 - Pyroprocessing\",\n      \"production_rate\": 125,\n      \"production_unit\": \"TPH\"\n    },\n    {\n      \"id\": \"kiln_parameters\",\n      \"type\": \"parameter_grid\",\n      \"parameters\": [\n        { \"name\": \"Kiln Feed\", \"value\": 125, \"unit\": \"TPH\" },\n        { \"name\": \"Fuel Rate\", \"value\": 18.5, \"unit\": \"TPH\" },\n        { \"name\": \"Burning Zone Temp\", \"value\": 1450, \"unit\": \"°C\" },\n        { \"name\": \"Kiln Speed\", \"value\": 3.2, \"unit\": \"RPM\" },\n        { \"name\": \"Kiln Torque\", \"value\": 65, \"unit\": \"%\" },\n        { \"name\": \"Secondary Air Temp\", \"value\": 950, \"unit\": \"°C\" }\n      ]\n    },\n    {\n      \"id\": \"cooler_status\",\n      \"type\": \"cooler_panel\",\n      \"cooler_type\": \"Grate Cooler\",\n      \"grate_speed\": 8.5,\n      \"speed_unit\": \"strokes/min\",\n      \"cooler_pressure\": 1.8,\n      \"pressure_unit\": \"kPa\",\n      \"clinker_temp\": 85,\n      \"temp_unit\": \"°C\"\n    },\n    {\n      \"id\": \"emissions\",\n      \"type\": \"emissions_monitor\",\n      \"noX\": 380,\n      \"noX_unit\": \"mg/Nm³\",\n      \"so2\": 45,\n      \"so2_unit\": \"mg/Nm³\",\n      \"particulates\": 12,\n      \"particulates_unit\": \"mg/Nm³\",\n      \"opacity\": 3.5,\n      \"opacity_unit\": \"%\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Design a steel mill electric arc furnace screen with metals theme. Show power input, electrode position, temperature, and tap weight. Include scrap charge status and offgas analysis. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"eaf_control\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"metals\",\n    \"layout\": \"furnace_view\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"furnace_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Electric Arc Furnace - Melt Shop\",\n      \"heat_number\": \"H-2415\",\n      \"grade\": \"Low Carbon\"\n    },\n    {\n      \"id\": \"power_control\",\n      \"type\": \"power_panel\",\n      \"power_input\": 65,\n      \"power_unit\": \"MW\",\n      \"voltage\": 850,\n      \"voltage_unit\": \"V\",\n      \"current\": 75,\n      \"current_unit\": \"kA\",\n      \"power_factor\": 0.82,\n      \"tap\": 5,\n      \"impedance\": 4.5,\n      \"impedance_unit\": \"mΩ\"\n    },\n    {\n      \"id\": \"electrodes\",\n      \"type\": \"electrode_control\",\n      \"electrodes\": 3,\n      \"positions\": [125, 118, 132],\n      \"position_unit\": \"cm\",\n      \"regulation_mode\": \"auto\",\n      \"consumption\": 2.8,\n      \"consumption_unit\": \"kg/ton\"\n    },\n    {\n      \"id\": \"process_parameters\",\n      \"type\": \"parameter_display\",\n      \"steel_temp\": 1650,\n      \"temp_unit\": \"°C\",\n      \"tap_weight\": 125,\n      \"weight_unit\": \"tons\",\n      \"oxygen_blow\": 850,\n      \"blow_unit\": \"Nm³/hr\",\n      \"carbon_injection\": 12,\n      \"injection_unit\": \"kg/min\"\n    },\n    {\n      \"id\": \"scrap_charge\",\n      \"type\": \"charge_status\",\n      \"buckets\": 2,\n      \"current_bucket\": 2,\n      \"scrap_weight\": 62,\n      \"weight_unit\": \"tons\",\n      \"remaining\": 0\n    },\n    {\n      \"id\": \"offgas_analysis\",\n      \"type\": \"gas_analysis\",\n      \"co\": 18.5,\n      \"co2\": 12.2,\n      \"h2\": 5.8,\n      \"unit\": \"%\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+{"role":"user","content":"Create compressor control screen. Dark theme. Start and Stop buttons. 6 indicators. Resolution 1280x720."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"header_body_footer\"},\"sections\":[{\"id\":\"buttons\",\"type\":\"button_group\",\"alignment\":\"horizontal\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"}]},{\"id\":\"indicators\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":3}]}"},
+{"role":"user","content":"Add Reset button and alarm banner at bottom."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"header_body_footer\"},\"sections\":[{\"id\":\"buttons\",\"type\":\"button_group\",\"alignment\":\"horizontal\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"},{\"label\":\"Reset\",\"style\":\"warning\"}]},{\"id\":\"indicators\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":3},{\"id\":\"alarm\",\"type\":\"alarm_banner\",\"position\":\"bottom\",\"severity_levels\":[\"warning\",\"critical\"]}]}"}]}
+{"messages":[
+{"role":"user","content":"Create packaging machine dashboard. Steel gray theme. 4 machine cards. Resolution 1920x1080."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"steel_gray\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"machines\",\"type\":\"card_grid\",\"rows\":2,\"columns\":2,\"card_template\":{\"title\":\"Machine\",\"fields\":[\"Status\",\"Speed\",\"Output\"]}}]}"},
+{"role":"user","content":"Change layout to sidebar layout and add navigation menu."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"steel_gray\",\"layout\":\"sidebar_layout\"},\"sections\":[{\"id\":\"sidebar\",\"type\":\"navigation_menu\",\"items\":[\"Overview\",\"Alarms\",\"Reports\",\"Settings\"]},{\"id\":\"machines\",\"type\":\"card_grid\",\"rows\":2,\"columns\":2,\"card_template\":{\"title\":\"Machine\",\"fields\":[\"Status\",\"Speed\",\"Output\"]}}]}"}]}
+{"messages":[
+{"role":"user","content":"Create tank monitoring screen. Light theme. 3 tanks. Resolution 1366x768."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1366,\"height\":768},\"theme\":\"clean_light\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"tanks\",\"type\":\"process_diagram\",\"elements\":3,\"element_template\":{\"type\":\"vertical_tank\",\"fields\":[\"Level\",\"Temperature\"]}}]}"},
+{"role":"user","content":"Add alarm banner and change theme to industrial dark."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1366,\"height\":768},\"theme\":\"industrial_dark\",\"layout\":\"header_body_footer\"},\"sections\":[{\"id\":\"tanks\",\"type\":\"process_diagram\",\"elements\":3,\"element_template\":{\"type\":\"vertical_tank\",\"fields\":[\"Level\",\"Temperature\"]}},{\"id\":\"alarm\",\"type\":\"alarm_banner\",\"position\":\"bottom\",\"severity_levels\":[\"warning\",\"critical\"]}]}"}]}
+{"messages":[
+{"role":"user","content":"Create servo axis control screen. Midnight blue theme. Show position and speed values. Resolution 1280x720."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"midnight_blue\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"position\",\"type\":\"display_field\",\"label\":\"Position\"},{\"id\":\"speed\",\"type\":\"display_field\",\"label\":\"Speed\"}]}"},
+{"role":"user","content":"Add Jog Forward and Jog Reverse buttons."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"midnight_blue\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"position\",\"type\":\"display_field\",\"label\":\"Position\"},{\"id\":\"speed\",\"type\":\"display_field\",\"label\":\"Speed\"},{\"id\":\"jog_buttons\",\"type\":\"button_group\",\"alignment\":\"horizontal\",\"buttons\":[{\"label\":\"Jog Forward\",\"style\":\"secondary\"},{\"label\":\"Jog Reverse\",\"style\":\"secondary\"}]}]}"}]}
+{"messages":[
+{"role":"user","content":"Create alarm summary page. High contrast theme. Resolution 1280x800."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"alarm_summary\",\"resolution\":{\"width\":1280,\"height\":800},\"theme\":\"high_contrast\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"alarm_table\",\"type\":\"alarm_table\",\"columns\":[\"Time\",\"Tag\",\"Severity\",\"Message\"]}]}"},
+{"role":"user","content":"Add severity pie chart and enable filtering."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"alarm_summary\",\"resolution\":{\"width\":1280,\"height\":800},\"theme\":\"high_contrast\",\"layout\":\"split_panel\"},\"sections\":[{\"id\":\"alarm_table\",\"type\":\"alarm_table\",\"columns\":[\"Time\",\"Tag\",\"Severity\",\"Message\"],\"filter_enabled\":true},{\"id\":\"severity_chart\",\"type\":\"chart\",\"chart_type\":\"pie\",\"data_source\":\"alarm_severity_distribution\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Create boiler control screen. Dark theme. Show temperature and pressure gauges. Resolution 1280x720."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"temperature\",\"type\":\"gauge\",\"label\":\"Temperature\"},{\"id\":\"pressure\",\"type\":\"gauge\",\"label\":\"Pressure\"}]}"},
+{"role":"user","content":"Add Start and Stop buttons and alarm banner."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"header_body_footer\"},\"sections\":[{\"id\":\"gauges\",\"type\":\"group\",\"elements\":[{\"type\":\"gauge\",\"label\":\"Temperature\"},{\"type\":\"gauge\",\"label\":\"Pressure\"}]},{\"id\":\"buttons\",\"type\":\"button_group\",\"alignment\":\"horizontal\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"}]},{\"id\":\"alarm\",\"type\":\"alarm_banner\",\"position\":\"bottom\",\"severity_levels\":[\"warning\",\"critical\"]}]}"}]}
+{"messages":[
+{"role":"user","content":"Create production overview dashboard. Clean light theme. Resolution 1920x1080."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"clean_light\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"production_card\",\"type\":\"card\",\"title\":\"Production\",\"fields\":[\"Shift Output\",\"Target\",\"Efficiency\"]}]}"},
+{"role":"user","content":"Add machine status grid with 8 machines."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"clean_light\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"production_card\",\"type\":\"card\",\"title\":\"Production\",\"fields\":[\"Shift Output\",\"Target\",\"Efficiency\"]},{\"id\":\"machines\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":4,\"indicator_style\":\"round_led\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Create VFD control page. Steel gray theme. Frequency setpoint input. Resolution 1280x720."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"steel_gray\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"frequency\",\"type\":\"numeric_input\",\"label\":\"Frequency Setpoint\"}]}"},
+{"role":"user","content":"Add Start, Stop and Run indicator."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"steel_gray\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"frequency\",\"type\":\"numeric_input\",\"label\":\"Frequency Setpoint\"},{\"id\":\"buttons\",\"type\":\"button_group\",\"alignment\":\"horizontal\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"}]},{\"id\":\"run_indicator\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":1}]}"}]}
+{"messages":[
+{"role":"user","content":"Create micro HMI 800x480. Emergency Stop only. High contrast theme."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"micro_hmi\",\"resolution\":{\"width\":800,\"height\":480},\"theme\":\"high_contrast\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"emergency\",\"type\":\"button_group\",\"alignment\":\"vertical\",\"buttons\":[{\"label\":\"Emergency Stop\",\"style\":\"danger\"}]}]}"},
+{"role":"user","content":"Add system healthy indicator."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"micro_hmi\",\"resolution\":{\"width\":800,\"height\":480},\"theme\":\"high_contrast\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"emergency\",\"type\":\"button_group\",\"alignment\":\"vertical\",\"buttons\":[{\"label\":\"Emergency Stop\",\"style\":\"danger\"}]},{\"id\":\"health\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":1}]}"}]}
+{"messages":[
+{"role":"user","content":"Create assembly line monitoring screen. Dark theme. 10 indicators. Resolution 1366x768."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1366,\"height\":768},\"theme\":\"industrial_dark\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"line_status\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":5,\"indicator_style\":\"round_led\"}]}"},
+{"role":"user","content":"Convert to dashboard layout and add production chart."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1366,\"height\":768},\"theme\":\"industrial_dark\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"line_status\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":5,\"indicator_style\":\"round_led\"},{\"id\":\"production_chart\",\"type\":\"chart\",\"chart_type\":\"line\",\"data_source\":\"production_trend\"}]}"}]}
+
+
+{"messages":[
+{"role":"user","content":"Create pump monitoring screen. Dark theme. Show 4 pump status indicators. Resolution 1280x720."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"pump_status\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":2,\"indicator_style\":\"round_led\"}]}"},
+{"role":"user","content":"Convert this into a control screen with Start and Stop buttons for each pump."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"pump_controls\",\"type\":\"card_grid\",\"rows\":2,\"columns\":2,\"card_template\":{\"title\":\"Pump\",\"fields\":[\"Status\"],\"controls\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"}]}}]}"}]}
+{"messages":[
+{"role":"user","content":"Create energy monitoring dashboard. Steel gray theme. Resolution 1920x1080."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"energy_monitor\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"steel_gray\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"energy_chart\",\"type\":\"chart\",\"chart_type\":\"line\",\"data_source\":\"energy_trend\"}]}"},
+{"role":"user","content":"Convert this into executive overview style with summary cards instead of chart."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"steel_gray\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"summary_cards\",\"type\":\"card_grid\",\"rows\":1,\"columns\":4,\"card_template\":{\"title\":\"Metric\",\"fields\":[\"Value\",\"Trend\"]}}]}"}]}
+{"messages":[
+{"role":"user","content":"Create IO monitoring page. Light theme. 32 inputs. Resolution 1920x1080."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"io_monitoring\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"clean_light\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"io_table\",\"type\":\"io_table\",\"digital_inputs\":32,\"digital_outputs\":0}]}"},
+{"role":"user","content":"Convert to micro HMI for 800x480 screen."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"micro_hmi\",\"resolution\":{\"width\":800,\"height\":480},\"theme\":\"clean_light\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"io_summary\",\"type\":\"indicator_grid\",\"rows\":4,\"columns\":4,\"indicator_style\":\"round_led\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Create alarm summary page. High contrast theme. Resolution 1280x800."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"alarm_summary\",\"resolution\":{\"width\":1280,\"height\":800},\"theme\":\"high_contrast\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"alarm_table\",\"type\":\"alarm_table\",\"columns\":[\"Time\",\"Tag\",\"Severity\",\"Message\"]}]}"},
+{"role":"user","content":"Convert this into compact mobile style layout."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"alarm_summary\",\"resolution\":{\"width\":800,\"height\":600},\"theme\":\"high_contrast\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"alarm_list\",\"type\":\"alarm_table\",\"columns\":[\"Tag\",\"Severity\"],\"row_style\":\"compact\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Create tank monitoring dashboard. Dark theme. 6 tanks. Resolution 1920x1080."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"industrial_dark\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"tanks\",\"type\":\"process_diagram\",\"elements\":6,\"element_template\":{\"type\":\"vertical_tank\",\"fields\":[\"Level\"]}}]}"},
+{"role":"user","content":"Convert this into engineering-dense screen with more details."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"industrial_dark\",\"layout\":\"split_panel\"},\"sections\":[{\"id\":\"tanks\",\"type\":\"process_diagram\",\"elements\":6,\"element_template\":{\"type\":\"vertical_tank\",\"fields\":[\"Level\",\"Temperature\",\"Pressure\"]}},{\"id\":\"numeric_table\",\"type\":\"data_table\",\"columns\":[\"Tank\",\"Level\",\"Temp\",\"Pressure\"]}]}"}]}
+
+
+{"messages":[{"role":"user","content":"Create motor control screen. Dark theme. Resolution 1280x720."},{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"motor_status\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":1}]}"} ,{"role":"user","content":"Convert this into dashboard with 8 motors."},{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"motors\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":4,\"indicator_style\":\"round_led\"}]}"}]}
+{"messages":[{"role":"user","content":"Create production dashboard. Light theme. Resolution 1920x1080."},{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"clean_light\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"production_chart\",\"type\":\"chart\",\"chart_type\":\"line\",\"data_source\":\"production_trend\"}]}"} ,{"role":"user","content":"Convert into operator-friendly simple screen."},{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"clean_light\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"production_value\",\"type\":\"display_field\",\"label\":\"Current Output\"},{\"id\":\"start_button\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"}]}]}"}]}
+{"messages":[{"role":"user","content":"Create HVAC monitoring page. Resolution 1280x720."},{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"steel_gray\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"hvac_status\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":2}]}"} ,{"role":"user","content":"Convert this to control page with setpoint and fan control."},{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"steel_gray\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"setpoint\",\"type\":\"numeric_input\",\"label\":\"Temperature Setpoint\"},{\"id\":\"fan_selector\",\"type\":\"dropdown\",\"label\":\"Fan Speed\",\"options\":[\"Low\",\"Medium\",\"High\"]}]}"}]}
+{"messages":[{"role":"user","content":"Create dashboard with 3 charts. Dark theme."},{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1366,\"height\":768},\"theme\":\"industrial_dark\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"chart1\",\"type\":\"chart\",\"chart_type\":\"line\"},{\"id\":\"chart2\",\"type\":\"chart\",\"chart_type\":\"bar\"},{\"id\":\"chart3\",\"type\":\"chart\",\"chart_type\":\"area\"}]}"} ,{"role":"user","content":"Convert into compact version for 1024x600."},{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1024,\"height\":600},\"theme\":\"industrial_dark\",\"layout\":\"split_panel\"},\"sections\":[{\"id\":\"chart1\",\"type\":\"chart\",\"chart_type\":\"line\"},{\"id\":\"chart2\",\"type\":\"chart\",\"chart_type\":\"bar\"}]}"}]}
+{"messages":[{"role":"user","content":"Create machine control screen. Midnight blue theme."},{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"midnight_blue\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"status\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":2}]}"} ,{"role":"user","content":"Make it color-blind safe high contrast theme."},{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"high_contrast\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"status\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":2}]}"}]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Generate a pipeline SCADA screen with oil & gas theme. Show 200km pipeline with 5 pump stations, pressure profile, leak detection status, and product batch tracking. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"pipeline_scada\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"oil_gas\",\n    \"layout\": \"pipeline_profile\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"pipeline_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Mainline Pipeline - Segment A\",\n      \"length\": 200,\n      \"length_unit\": \"km\",\n      \"diameter\": 36,\n      \"diameter_unit\": \"inches\"\n    },\n    {\n      \"id\": \"pressure_profile\",\n      \"type\": \"profile_graph\",\n      \"stations\": 5,\n      \"station_names\": [\"PS-1 Origin\", \"PS-2 Midpoint\", \"PS-3 Valley\", \"PS-4 Hill\", \"PS-5 Terminal\"],\n      \"pressures\": [1200, 1150, 1100, 1050, 950],\n      \"pressure_unit\": \"psi\",\n      \"elevations\": [250, 180, 120, 380, 200]\n    },\n    {\n      \"id\": \"pump_stations\",\n      \"type\": \"station_array\",\n      \"stations\": 5,\n      \"station_status\": [\"running\", \"running\", \"running\", \"standby\", \"running\"],\n      \"pumps_running\": [2, 2, 1, 0, 2],\n      \"flow_rates\": [4500, 4500, 4500, 0, 4500],\n      \"flow_unit\": \"m³/hr\"\n    },\n    {\n      \"id\": \"batch_tracking\",\n      \"type\": \"batch_display\",\n      \"batches\": [\n        { \"product\": \"Light Crude\", \"volume\": 25000, \"location\": \"km 45\" },\n        { \"product\": \"Diesel\", \"volume\": 18000, \"location\": \"km 82\" },\n        { \"product\": \"Gasoline\", \"volume\": 22000, \"location\": \"km 128\" }\n      ]\n    },\n    {\n      \"id\": \"leak_detection\",\n      \"type\": \"leak_monitor\",\n      \"system_status\": \"monitoring\",\n      \"mass_balance\": 99.98,\n      \"balance_unit\": \"%\",\n      \"threshold\": 0.5,\n      \"last_test\": \"2024-01-15 08:00\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Create a wind farm monitoring screen with renewable theme. Show 50 turbines with power output, wind speed, and direction. Include grid connection and curtailment status. Resolution 1680x1050."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"wind_farm\",\n    \"resolution\": { \"width\": 1680, \"height\": 1050 },\n    \"theme\": \"renewable\",\n    \"layout\": \"turbine_layout\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"farm_header\",\n      \"type\": \"header\",\n      \"title\": \"Wind Farm - Ridge Line\",\n      \"total_power\": 85,\n      \"power_unit\": \"MW\",\n      \"capacity\": 125\n    },\n    {
+      \"id\": \"wind_conditions\",\n      \"type\": \"weather_panel\",\n      \"wind_speed\": 12.5,\n      \"speed_unit\": \"m/s\",\n      \"wind_direction\": 285,\n      \"direction_unit\": \"°\",\n      \"gust\": 15.2,\n      \"air_density\": 1.225\n    },\n    {\n      \"id\": \"turbine_status\",\n      \"type\": \"turbine_grid\",\n      \"turbines\": 50,\n      \"turbine_names\": [\"WTG-01\" through \"WTG-50\"],\n      \"available\": 48,\n      \"running\": 42,\n      \"stopped\": 6,\n      \"maintenance\": 2,\n      \"avg_power\": 1.7,\n      \"power_unit\": \"MW\"\n    },\n    {\n      \"id\": \"selected_turbine_detail\",\n      \"type\": \"turbine_detail\",\n      \"turbine_id\": \"WTG-15\",\n      \"power\": 1.85,\n      \"power_unit\": \"MW\",\n      \"rpm\": 14.2,\n      \"pitch\": 12,\n      \"pitch_unit\": \"°\",\n      \"yaw\": 282,\n      \"yaw_unit\": \"°\",\n      \"temperature\": 35,\n      \"temp_unit\": \"°C\"\n    },\n    {\n      \"id\": \"grid_connection\",\n      \"type\": \"grid_panel\",\n      \"voltage\": 34.5,\n      \"voltage_unit\": \"kV\",\n      \"frequency\": 60,\n      \"frequency_unit\": \"Hz\",\n      \"reactive_power\": 12.5,\n      \"reactive_unit\": \"MVAR\",\n      \"curtailment\": 15,\n      \"curtailment_unit\": \"MW\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Design a hydrogen electrolyzer control screen with green energy theme. Show 10 stacks with voltage, current, and temperature. Include hydrogen production rate and purity. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"electrolyzer\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"green_energy\",\n    \"layout\": \"stack_overview\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"plant_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Hydrogen Electrolyzer - PEM Technology\",\n      \"production\": 850,\n      \"production_unit\": \"Nm³/hr\",\n      \"power_input\": 4.5,\n      \"power_unit\": \"MW\"\n    },\n    {\n      \"id\": \"electrolyzer_stacks\",\n      \"type\": \"stack_array\",\n      \"stacks\": 10,\n      \"stack_names\": [\"Stack 1\", \"Stack 2\", \"Stack 3\", \"Stack 4\", \"Stack 5\", \"Stack 6\", \"Stack 7\", \"Stack 8\", \"Stack 9\", \"Stack 10\"],\n      \"stack_status\": [\"running\", \"running\", \"running\", \"running\", \"running\", \"running\", \"standby\", \"standby\", \"maintenance\", \"running\"],\n      \"voltages\": [385, 382, 388, 384, 386, 385, 0, 0, 0, 383],\n      \"voltage_unit\": \"V\",\n      \"currents\": [1150, 1145, 1155, 1148, 1152, 1150, 0, 0, 0, 1147],\n      \"current_unit\": \"A\",\n      \"temperatures\": [65, 64, 66, 65, 65, 64, 22, 22, 22, 64],\n      \"temp_unit\": \"°C\"\n    },\n    {\n      \"id\": \"process_parameters\",\n      \"type\": \"parameter_panel\",\n      \"h2_production\": 850,\n      \"h2_unit\": \"Nm³/hr\",\n      \"h2_purity\": 99.92,\n      \"purity_unit\": \"%\",\n      \"h2_pressure\": 35,\n      \"pressure_unit\": \"bar\",\n      \"water_consumption\": 750,\n      \"water_unit\": \"L/hr\"\n    },\n    {\n      \"id\": \"stack_efficiency\",\n      \"type\": \"efficiency_display\",\n      \"stack_efficiency\": 75,\n      \"efficiency_unit\": \"%\",\n      \"specific_consumption\": 52.5,\n      \"consumption_unit\": \"kWh/kg\"\n    },\n    {\n      \"id\": \"balance_of_plant\",\n      \"type\": \"bop_panel\",\n      \"compressor_status\": \"running\",\n      \"compressor_pressure\": 150,\n      \"dryer_status\": \"online\",\n      \"storage_pressure\": 450,\n      \"storage_pressure_unit\": \"bar\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Create a battery energy storage system (BESS) screen with grid-scale theme. Show 20 racks with SOC, SOH, temperature, and power flow. Include grid connection and inverter status. Resolution 1680x1050."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"bess\",\n    \"resolution\": { \"width\": 1680, \"height\": 1050 },\n    \"theme\": \"grid_scale\",\n    \"layout\": \"rack_overview\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"bess_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Battery Energy Storage System - 50MW/200MWh\",\n      \"total_soc\": 72,\n      \"soc_unit\": \"%\",\n      \"power\": 35,\n      \"power_unit\": \"MW\"\n    },\n    {\n      \"id\": \"rack_summary\",\n      \"type\": \"rack_grid\",\n      \"racks\": 20,\n      \"rack_names\": [\"Rack 1\" through \"Rack 20\"],\n      "soc_levels\": [75, 72, 68, 71, 74, 73, 70, 69, 72, 71, 74, 73, 70, 69, 68, 72, 71, 70, 69, 68],\n      \"soh_levels\": [98, 97, 99, 96, 98, 97, 96, 98, 97, 96, 98, 97, 96, 98, 97, 96, 98, 97, 96, 98],\n      \"temperatures\": [28, 27, 29, 28, 27, 28, 26, 27, 28, 29, 28, 27, 26, 28, 27, 28, 27, 26, 27, 28],\n      \"temp_unit\": \"°C\"\n    },\n    {\n      \"id\": \"power_flow\",\n      \"type\": \"power_display\",\n      \"grid_power\": 35,\n      \"grid_unit\": \"MW\",\n      \"direction\": \"discharging\",\n      \"reactive_power\": 5.2,\n      \"reactive_unit\": \"MVAR\",\n      \"frequency\": 60.0,\n      \"frequency_unit\": \"Hz\"\n    },\n    {\n      \"id\": \"inverter_status\",\n      \"type\": \"inverter_panel\",\n      \"inverters\": 10,\n      \"inverter_names\": [\"PCS-01\" through \"PCS-10\"],\n      \"inverter_status\": [\"online\", \"online\", \"online\", \"online\", \"online\", \"online\", \"online\", \"online\", \"online\", \"online\"],\n      \"efficiency\": 97.5,\n      \"efficiency_unit\": \"%\"\n    },\n    {\n      \"id\": \"system_metrics\",\n      \"type\": \"metrics_panel\",\n      \"cycles\": 1250,\n      \"total_throughput\": 45000,\n      \"throughput_unit\": \"MWh\",\n      \"avg_temp\": 27.5,\n      \"avg_temp_unit\": \"°C\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Generate a microgrid control screen with island mode theme. Show solar, wind, battery, diesel genset, and critical loads. Include power balance and island status. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"microgrid\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"island_mode\",\n    \"layout\": \"single_line\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"microgrid_header\",\n      \"type\": \"header\",\n      \"title\": \"Microgrid Control - Island Mode\",\n      \"grid_status\": \"islanded\",\n      \"total_gen\": 185,\n      \"total_load\": 165,\n      \"unit\": \"kW\"\n    },\n    {\n      \"id\": \"generation_sources\",\n      \"type\": \"source_panel\",\n      \"sources\": [\n        { \"type\": \"Solar PV\", \"power\": 85, \"unit\": \"kW\", \"available\": 120 },\n        { \"type\": \"Wind\", \"power\": 32, \"unit\": \"kW\", \"available\": 80 },\n        { \"type\": \"Battery\", \"power\": 48, \"unit\": \"kW\", \"soc\": 65 },\n        { \"type\": \"Diesel Gen\", \"power\": 20, \"unit\": \"kW\", \"fuel\": 85 }\n      ]\n    },\n    {\n      \"id\": \"critical_loads\",\n      \"type\": \"load_panel\",\n      \"loads\": [\n        { \"name\": \"Critical Load 1 - Hospital\", \"power\": 85, \"priority\": 1 },\n        { \"name\": \"Critical Load 2 - Comms\", \"power\": 25, \"priority\": 1 },\n        { \"name\": \"Essential Loads\", \"power\": 45, \"priority\": 2 },\n        { \"name\": \"Non-Critical\", \"power\": 10, \"priority\": 3 }\n      ]\n    },\n    {\n      \"id\": \"power_balance\",\n      \"type\": \"balance_display\",\n      \"generation\": 185,\n      \"load\": 165,\n      \"surplus\": 20,\n      \"battery_mode\": \"charging\",\n      \"time_on_island\": \"02:45:00\"\n    },\n    {\n      \"id\": \"grid_connection\",\n      \"type\": \"grid_panel\",\n      \"utility_available\": true,\n      \"auto_sync\": true,\n      \"synchronization\": \"in_progress\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Design a water distribution SCADA screen with municipal theme. Show 5 reservoirs, 10 pump stations, pressure zones, and flow rates. Include water quality monitoring at key points. Resolution 1600x900."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"water_distribution\",\n    \"resolution\": { \"width\": 1600, \"height\": 900 },\n    \"theme\": \"municipal\",\n    \"layout\": \"network_map\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"system_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Water Distribution System - City Network\",\n      \"total_flow\": 25.5,\n      \"flow_unit\": \"MGD\"\n    },\n    {\n      \"id\": \"reservoirs\",\n      \"type\": \"reservoir_panel\",\n      \"reservoirs\": 5,\n      \"reservoir_names\": [\"Clearwell 1\", \"Clearwell 2\", \"Elevated Tank 1\", \"Elevated Tank 2\", \"Ground Storage\"],\n      \"levels\": [8.5, 12.2, 85, 72, 14.5],\n      \"level_unit\": [\"ft\", \"ft\", \"%\", \"%\", \"ft\"],\n      \"chlorine\": [1.2, 1.1, 0.9, 1.0, 1.3],\n      \"chlorine_unit\": \"mg/L\"\n    },\n    {\n      \"id\": \"pump_stations\",\n      \"type\": \"station_grid\",\n      \"stations\": 10,\n      \"station_names\": [\"PS-1 Main\", \"PS-2 East\", \"PS-3 West\", \"PS-4 North\", \"PS-5 South\", \"PS-6 Booster\", \"PS-7 Booster\", \"PS-8 Booster\", \"PS-9 Industrial\", \"PS-10 Heights\"],\n      \"station_status\": [\"running\", \"running\", \"running\", \"standby\", \"running\", \"running\", \"running\", \"standby\", \"running\", \"running\"],\n      \"flow_rates\": [8.2, 4.5, 3.8, 0, 2.5, 3.2, 2.8, 0, 1.5, 1.8],\n      \"flow_unit\": \"MGD\"\n    },\n    {\n      \"id\": \"pressure_zones\",\n      \"type\": \"zone_panel\",\n      \"zones\": 6,\n      \"zone_names\": [\"Zone 1 Low\", \"Zone 2 Medium\", \"Zone 3 High\", \"Zone 4 Industrial\", \"Zone 5 Hills\", \"Zone 6 Downtown\"],\n      \"pressures\": [65, 85, 125, 70, 135, 80],\n      \"pressure_unit\": \"psi\"\n    },\n    {\n      \"id\": \"water_quality\",\n      \"type\": \"quality_points\",\n      \"points\": 4,\n      \"locations\": [\"WTP Outlet\", \"Downtown\", \"Industrial Park\", \"Heights\"],\n      \"chlorine\": [1.2, 0.8, 1.0, 0.7],\n      \"turbidity\": [0.12, 0.35, 0.28, 0.42],\n      \"ph\": [7.2, 7.4, 7.1, 7.5]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Create a gas turbine control screen with power generation theme. Show turbine speed, exhaust temp, compressor pressure ratio, and generator output. Include vibration monitoring and fuel control. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"gas_turbine\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"power_gen\",\n    \"layout\": \"turbine_diagram\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"turbine_header\",\n      \"type\": \"header\",\n      \"title\": \"Gas Turbine - Frame 7EA\",\n      \"unit\": \"GT-101\",\n      \"load\": 72,\n      \"load_unit\": \"MW\"\n    },\n    {\n      \"id\": \"core_parameters\",\n      \"type\": \"parameter_grid\",\n      \"parameters\": [\n        { \"name\": \"Turbine Speed\", \"value\": 3600, \"unit\": \"RPM\" },\n        { \"name\": \"Exhaust Temp\", \"value\": 1025, \"unit\": \"°F\" },\n        { \"name\": \"Compressor Ratio\", \"value\": 12.5, \"unit\": \":1\" },\n        { \"name\": \"Compressor Discharge\", \"value\": 185, \"unit\": \"psi\" },\n        { \"name\": \"Firing Temp\", \"value\": 2150, \"unit\": \"°F\" },\n        { \"name\": \"Air Flow\", \"value\": 850, \"unit\": \"lb/s\" }\n      ]\n    },\n    {\n      \"id\": \"generator\",\n      \"type\": \"generator_panel\",\n      \"power\": 72,\n      \"power_unit\": \"MW\",\n      \"voltage\": 13.8,\n      \"voltage_unit\": \"kV\",\n      \"current\": 3010,\n      \"current_unit\": \"A\",\n      \"power_factor\": 0.95,\n      \"frequency\": 60,\n      \"frequency_unit\": \"Hz\",\n      \"field_voltage\": 185,\n      \"field_current\": 1250\n    },\n    {\n      \"id\": \"vibration_monitoring\",\n      \"type\": \"vibration_panel\",\n      \"bearings\": 8,\n      \"vibration_levels\": [0.12, 0.15, 0.18, 0.22, 0.14, 0.16, 0.19, 0.21],\n      \"vibration_unit\": \"in/s\",\n      \"alarm_level\": 0.5,\n      \"trip_level\": 1.0\n    },\n    {\n      \"id\": \"fuel_control\",\n      \"type\": \"fuel_panel\",\n      \"fuel_type\": \"Natural Gas\",\n      \"fuel_flow\": 1250,\n      \"flow_unit\": \"SCFM\",\n      \"fuel_pressure\": 385,\n      \"pressure_unit\": \"psi\",\n      \"fuel_temp\": 85,\n      \"temp_unit\": \"°F\",\n      \"control_valve\": 68,\n      \"valve_unit\": \"%\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Design a steam turbine control screen with Rankine cycle theme. Show HP, IP, LP sections, extraction flows, condenser vacuum, and feedwater heaters. Include throttle valve and governor. Resolution 1680x1050."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"steam_turbine\",\n    \"resolution\": { \"width\": 1680, \"height\": 1050 },\n    \"theme\": \"rankine\",\n    \"layout\": \"turbine_schematic\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"turbine_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Steam Turbine - T-201\",\n      \"load\": 185,\n      \"load_unit\": \"MW\",\n      \"speed\": 3600,\n      \"speed_unit\": \"RPM\"\n    },\n    {\n      \"id\": \"turbine_sections\",\n      \"type\": \"section_panel\",\n      \"sections\": [\n        { \"name\": \"HP Section\", \"inlet_pressure\": 2400, \"inlet_temp\": 1000, \"exhaust_pressure\": 600 },\n        { \"name\": \"IP Section\", \"inlet_pressure\": 580, \"inlet_temp\": 1000, \"exhaust_pressure\": 150 },\n        { \"name\": \"LP Section\", \"inlet_pressure\": 145, \"inlet_temp\": 650, \"exhaust_pressure\": 1.5 }\n      ],\n      \"pressure_unit\": \"psi\",\n      \"temp_unit\": \"°F\"\n    },\n    {\n      \"id\": \"extractions\",\n      \"type\": \"extraction_panel\",\n      \"extractions\": 4,\n      \"extraction_names\": [\"Extraction 1 - FWH1\", \"Extraction 2 - FWH2\", \"Extraction 3 - FWH3\", \"Extraction 4 - FWH4\"],\n      \"extraction_pressures\": [450, 175, 65, 12],\n      \"pressure_unit\": \"psi\",\n      \"extraction_flows\": [125, 85, 45, 22],\n      \"flow_unit\": \"klb/hr\"\n    },\n    {\n      \"id\": \"condenser\",\n      \"type\": \"condenser_panel\",\n      \"vacuum\": 28.5,\n      \"vacuum_unit\": \"inHg\",\n      \"condensate_temp\": 105,\n      \"temp_unit\": \"°F\",\n      \"cooling_water_in\": 85,\n      \"cooling_water_out\": 95\n    },\n    {\n      \"id\": \"feedwater_heaters\",\n      \"type\": \"fwh_panel\",\n      \"heaters\": 4,\n      \"heater_levels\": [65, 58, 72, 45],\n      \"level_unit\": \"%\",\n      \"drain_cooler_status\": [\"online\", \"online\", \"online\", \"online\"]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Generate a carbon capture system screen with emissions reduction theme. Show absorber column, regenerator, CO2 compression, and storage. Include amine concentration and emissions monitoring. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"carbon_capture\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"emissions\",\n    \"layout\": \"process_diagram\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"plant_header\",\n      \"type\": \"header\",\n      \"title\": \"Carbon Capture System - Post-Combustion\",\n      \"capture_rate\": 4500,\n      \"rate_unit\": \"tons/day\",\n      \"efficiency\": 92,\n      \"efficiency_unit\": \"%\"\n    },\n    {\n      \"id\": \"absorber\",\n      \"type\": \"column_control\",\n      \"column_name\": \"Absorber C-101\",\n      \"flue_gas_in\": 1250,\n      \"flue_unit\": \"klb/hr\",\n      \"co2_in\": 12.5,\n      \"co2_unit\": \"%\",\n      \"lean_amine_in\": 1850,\n      \"amine_unit\": \"gpm\",\n      \"rich_amine_out\": 1920,\n      \"temp_profile\": [115, 122, 128, 135],\n      \"temp_unit\": \"°F\"\n    },\n    {\n      \"id\": \"regenerator\",\n      \"type\": \"regenerator_panel\",\n      \"column_name\": \"Regenerator C-102\",\n      \"rich_amine_in\": 1920,\n      \"lean_amine_out\": 1850,\n      \"reboiler_temp\": 245,\n      \"temp_unit\": \"°F\",\n      \"reboiler_pressure\": 25,\n      \"pressure_unit\": \"psi\",\n      \"co2_product\": 185,\n      \"co2_unit\": \"klb/hr\"\n    },\n    {\n      \"id\": \"amine_system\",\n      \"type\": \"amine_panel\",\n      \"amine_concentration\": 32,\n      \"concentration_unit\": \"%\",\n      \"amine_heat_exchanger\": \"operational\",\n      \"amine_filter_dp\": 8.5,\n      \"dp_unit\": \"psi\",\n      \"amine_reclaimer\": \"online\"\n    },\n    {\n      \"id\": \"compression_storage\",\n      \"type\": \"compression_panel\",\n      \"compression_stages\": 3,\n      \"discharge_pressure\": 2200,\n      \"pressure_unit\": \"psi\",\n      \"storage_pressure\": 1800,\n      \"storage_temp\": 85,\n      \"temp_unit\": \"°F\",\n      \"co2_purity\": 99.5,\n      \"purity_unit\": \"%\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Design a smart building BMS dashboard with IoT theme. Show HVAC, lighting, access, fire, and energy across 20 floors. Include occupancy and comfort metrics. Resolution 1920x1080."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"bms_dashboard\",\n    \"resolution\": { \"width\": 1920, \"height\": 1080 },\n    \"theme\": \"iot_smart\",\n    \"layout\": \"dashboard\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"building_header\",\n      \"type\": \"header\",\n      \"title\": \"Smart Building Management System\",\n      \"building\": \"Tower B\",\n      \"occupancy\": 1850,\n      \"energy_score\": 82,\n      \"comfort_index\": 88\n    },\n    {\n      \"id\": \"floor_overview\",\n      \"type\": \"floor_grid\",\n      \"floors\": 20,\n      \"floor_range\": \"1-20\",\n      \"occupied_floors\": 15,\n      \"avg_temp\": 72.5,\n      \"avg_humidity\": 48,\n      \"avg_co2\": 425\n    },\n    {\n      \"id\": \"system_summary\",\n      \"type\": \"kpi_panel\",\n      \"systems\": [\n        { \"name\": \"HVAC\", \"status\": \"normal\", \"energy\": 245, \"unit\": \"kW\" },\n        { \"name\": \"Lighting\", \"status\": \"normal\", \"energy\": 85, \"unit\": \"kW\" },\n        { \"name\": \"Access\", \"status\": \"normal\", \"events\": 125 },\n        { \"name\": \"Fire\", \"status\": \"normal\" }\n      ]\n    },\n    {\n      \"id\": \"selected_floor_detail\",\n      \"type\": \"floor_detail\",\n      \"floor\": 5,\n      \"temperature\": [72, 73, 71, 72],\n      \"co2\": [425, 435, 415, 430],\n      \"occupancy\": 185,\n      \"lighting_level\": 65,\n      \"zone_count\": 4\n    },\n    {\n      \"id\": \"energy_trend\",\n      \"type\": \"trend_graph\",\n      \"time_range\": \"24_hours\",\n      \"total_energy\": 8450,\n      \"energy_unit\": \"kWh\",\n      \"peak_demand\": 525,\n      \"peak_unit\": \"kW\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+{"role":"user","content":"Make it look like something a factory manager would check in the morning."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"modern_flat\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"kpi_cards\",\"type\":\"card_grid\",\"rows\":1,\"columns\":4,\"card_template\":{\"title\":\"Metric\",\"fields\":[\"Value\",\"Trend\"]}},{\"id\":\"production_chart\",\"type\":\"chart\",\"chart_type\":\"line\",\"data_source\":\"daily_output\"},{\"id\":\"alarm_summary\",\"type\":\"alarm_table\",\"columns\":[\"Severity\",\"Count\"]}]}"}]}
+{"messages":[
+{"role":"user","content":"I need something simple for an operator on the shop floor."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"status_indicator\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":3,\"indicator_style\":\"round_led\"},{\"id\":\"primary_controls\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"}]}]}"}]}
+{"messages":[
+{"role":"user","content":"Design something that works on a small panel device near the machine."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"micro_hmi\",\"resolution\":{\"width\":800,\"height\":480},\"theme\":\"steel_gray\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"machine_status\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":2},{\"id\":\"control_buttons\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Run\",\"style\":\"primary\"},{\"label\":\"Reset\",\"style\":\"secondary\"}]}]}"}]}
+{"messages":[
+{"role":"user","content":"Create a serious looking control interface for heavy equipment."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":800},\"theme\":\"industrial_dark\",\"layout\":\"split_panel\"},\"sections\":[{\"id\":\"equipment_status\",\"type\":\"process_diagram\",\"elements\":3},{\"id\":\"control_panel\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"},{\"label\":\"Emergency Stop\",\"style\":\"danger\"}]}]}"}]}
+{"messages":[
+{"role":"user","content":"Something modern and clean for energy tracking."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"energy_monitor\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"clean_light\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"energy_kpi\",\"type\":\"card_grid\",\"rows\":1,\"columns\":3,\"card_template\":{\"title\":\"Energy Metric\",\"fields\":[\"Value\",\"Trend\"]}},{\"id\":\"energy_trend\",\"type\":\"chart\",\"chart_type\":\"line\",\"data_source\":\"energy_usage\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Give me something that looks good on a big wall display in a control room."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":2560,\"height\":1440},\"theme\":\"industrial_dark\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"overview_kpis\",\"type\":\"card_grid\",\"rows\":1,\"columns\":6,\"card_template\":{\"title\":\"KPI\",\"fields\":[\"Value\"]}},{\"id\":\"process_overview\",\"type\":\"process_diagram\",\"elements\":5},{\"id\":\"alarm_strip\",\"type\":\"alarm_table\",\"columns\":[\"Severity\",\"Message\"]}]}"}]}
+{"messages":[
+{"role":"user","content":"Make a lightweight view for checking system health remotely."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1366,\"height\":768},\"theme\":\"modern_flat\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"health_cards\",\"type\":\"card_grid\",\"rows\":2,\"columns\":2,\"card_template\":{\"title\":\"System\",\"fields\":[\"Status\"]}}]}"}]}
+{"messages":[
+{"role":"user","content":"Design a monitoring page that feels technical and detailed."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"steel_gray\",\"layout\":\"split_panel\"},\"sections\":[{\"id\":\"process_diagram\",\"type\":\"process_diagram\",\"elements\":6},{\"id\":\"data_table\",\"type\":\"data_table\",\"columns\":[\"Tag\",\"Value\",\"Unit\",\"Status\"]}]}"}]}
+{"messages":[
+{"role":"user","content":"Create something minimal for just starting and stopping a machine."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"micro_hmi\",\"resolution\":{\"width\":800,\"height\":480},\"theme\":\"clean_light\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"controls\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"}]}]}"}]}
+{"messages":[
+{"role":"user","content":"Make a clean dashboard for tracking daily production numbers."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"clean_light\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"daily_kpis\",\"type\":\"card_grid\",\"rows\":1,\"columns\":4,\"card_template\":{\"title\":\"Production KPI\",\"fields\":[\"Value\",\"Target\"]}},{\"id\":\"production_trend\",\"type\":\"chart\",\"chart_type\":\"bar\",\"data_source\":\"daily_output\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Something rugged looking for a factory floor touchscreen."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"status_panel\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":2,\"indicator_style\":\"square_led\"},{\"id\":\"control_panel\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Run\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"}]}]}"}]}
+{"messages":[
+{"role":"user","content":"Create a compact view just for alarm checking."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"alarm_summary\",\"resolution\":{\"width\":1024,\"height\":600},\"theme\":\"high_contrast\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"alarm_list\",\"type\":\"alarm_table\",\"columns\":[\"Time\",\"Severity\",\"Message\"],\"row_style\":\"compact\"}]}"}]}
+{"messages":[
+{"role":"user","content":"I need something that shows trends clearly for engineers."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"steel_gray\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"trend1\",\"type\":\"chart\",\"chart_type\":\"line\"},{\"id\":\"trend2\",\"type\":\"chart\",\"chart_type\":\"line\"},{\"id\":\"trend3\",\"type\":\"chart\",\"chart_type\":\"line\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Make a fast-access control screen for maintenance staff."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"modern_flat\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"quick_controls\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"},{\"label\":\"Reset\",\"style\":\"secondary\"}]},{\"id\":\"status_leds\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":3}]}"}]}
+{"messages":[
+{"role":"user","content":"Create something calm and readable for night shift monitoring."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1366,\"height\":768},\"theme\":\"midnight_blue\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"status_cards\",\"type\":\"card_grid\",\"rows\":1,\"columns\":3,\"card_template\":{\"title\":\"System\",\"fields\":[\"Status\"]}},{\"id\":\"trend_chart\",\"type\":\"chart\",\"chart_type\":\"line\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Design a small interface for checking tank levels quickly."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"micro_hmi\",\"resolution\":{\"width\":800,\"height\":480},\"theme\":\"steel_gray\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"tank_levels\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":2,\"indicator_style\":\"vertical_bar\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Make an overview page that tells me if everything is OK at a glance."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"modern_flat\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"status_overview\",\"type\":\"indicator_grid\",\"rows\":2,\"columns\":3,\"indicator_style\":\"round_led\"},{\"id\":\"kpi_summary\",\"type\":\"card_grid\",\"rows\":1,\"columns\":3,\"card_template\":{\"title\":\"KPI\",\"fields\":[\"Value\"]}}]}"}]}
+{"messages":[
+{"role":"user","content":"Create a highly detailed diagnostics screen."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"steel_gray\",\"layout\":\"split_panel\"},\"sections\":[{\"id\":\"diagnostic_table\",\"type\":\"data_table\",\"columns\":[\"Tag\",\"Value\",\"Min\",\"Max\",\"Status\"]},{\"id\":\"trend_panel\",\"type\":\"chart\",\"chart_type\":\"line\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Something mobile-friendly for checking production remotely."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":800,\"height\":600},\"theme\":\"clean_light\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"production_kpis\",\"type\":\"card_grid\",\"rows\":2,\"columns\":1,\"card_template\":{\"title\":\"Production\",\"fields\":[\"Value\"]}}]}"}]}
+{"messages":[
+{"role":"user","content":"Design a simple page for controlling a conveyor."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"conveyor_status\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":2},{\"id\":\"conveyor_controls\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"},{\"label\":\"Reverse\",\"style\":\"secondary\"}]}]}"}]}
+
+
+////🔥 10 Ambiguous → Clarification Multi-Turn Samples
+
+{"messages":[
+{"role":"user","content":"Create a machine screen."},
+{"role":"assistant","content":"Can you clarify the purpose? Is this for monitoring, control, or diagnostics? Also what resolution and theme do you prefer?"},
+{"role":"user","content":"Control screen for operators. 1280x720. Dark theme."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"status\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":3},{\"id\":\"controls\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Start\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"},{\"label\":\"Reset\",\"style\":\"secondary\"}]}]}"}]}
+{"messages":[
+{"role":"user","content":"Make a dashboard for production."},
+{"role":"assistant","content":"Do you want a management overview dashboard or an operator live tracking screen? And what display size?"},
+{"role":"user","content":"Management overview. 1920x1080."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"modern_flat\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"kpis\",\"type\":\"card_grid\",\"rows\":1,\"columns\":4,\"card_template\":{\"title\":\"Production KPI\",\"fields\":[\"Value\",\"Target\",\"Trend\"]}},{\"id\":\"trend\",\"type\":\"chart\",\"chart_type\":\"line\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Create tank page."},
+{"role":"assistant","content":"Is this for level monitoring only or full tank control (valves/pumps)? Also how many tanks?"},
+{"role":"user","content":"Monitoring only. 4 tanks. 1280x800."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1280,\"height\":800},\"theme\":\"steel_gray\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"tanks\",\"type\":\"process_diagram\",\"elements\":4,\"element_template\":{\"type\":\"vertical_tank\",\"fields\":[\"Level\"]}}]}"}]}
+{"messages":[
+{"role":"user","content":"Design something for alarms."},
+{"role":"assistant","content":"Should this be a full alarm history page or a compact active alarm summary?"},
+{"role":"user","content":"Active alarm summary. Small screen 1024x600."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"alarm_summary\",\"resolution\":{\"width\":1024,\"height\":600},\"theme\":\"high_contrast\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"active_alarms\",\"type\":\"alarm_table\",\"columns\":[\"Time\",\"Severity\",\"Message\"],\"row_style\":\"compact\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Make energy screen."},
+{"role":"assistant","content":"Do you need trend charts, KPIs, or detailed per-device breakdown?"},
+{"role":"user","content":"KPIs and one trend chart. 1920x1080 light theme."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"energy_monitor\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"clean_light\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"energy_kpis\",\"type\":\"card_grid\",\"rows\":1,\"columns\":3},{\"id\":\"energy_trend\",\"type\":\"chart\",\"chart_type\":\"line\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Create conveyor interface."},
+{"role":"assistant","content":"Is this for monitoring speed/status or controlling start/stop/direction?"},
+{"role":"user","content":"Control with direction. 1280x720 dark theme."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"status\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":2},{\"id\":\"controls\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Forward\",\"style\":\"primary\"},{\"label\":\"Reverse\",\"style\":\"secondary\"},{\"label\":\"Stop\",\"style\":\"danger\"}]}]}"}]}
+{"messages":[
+{"role":"user","content":"Design factory overview."},
+{"role":"assistant","content":"Is this for a wall display overview or desktop dashboard?"},
+{"role":"user","content":"Wall display 2560x1440."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":2560,\"height\":1440},\"theme\":\"industrial_dark\",\"layout\":\"dashboard_grid\"},\"sections\":[{\"id\":\"overview_kpis\",\"type\":\"card_grid\",\"rows\":1,\"columns\":6},{\"id\":\"process_map\",\"type\":\"process_diagram\",\"elements\":8},{\"id\":\"alarm_strip\",\"type\":\"alarm_table\",\"columns\":[\"Severity\",\"Message\"]}]}"}]}
+{"messages":[
+{"role":"user","content":"Create diagnostics page."},
+{"role":"assistant","content":"Should this focus on real-time values, historical trends, or error codes?"},
+{"role":"user","content":"Real-time values and trends. 1920x1080."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"process_monitoring\",\"resolution\":{\"width\":1920,\"height\":1080},\"theme\":\"steel_gray\",\"layout\":\"split_panel\"},\"sections\":[{\"id\":\"live_table\",\"type\":\"data_table\",\"columns\":[\"Tag\",\"Value\",\"Status\"]},{\"id\":\"trend_panel\",\"type\":\"chart\",\"chart_type\":\"line\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Make HMI page."},
+{"role":"assistant","content":"For what device size? Micro panel or full desktop HMI?"},
+{"role":"user","content":"Micro 800x480 control screen."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"micro_hmi\",\"resolution\":{\"width\":800,\"height\":480},\"theme\":\"steel_gray\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"status_leds\",\"type\":\"indicator_grid\",\"rows\":1,\"columns\":3},{\"id\":\"control_buttons\",\"type\":\"button_group\",\"buttons\":[{\"label\":\"Run\",\"style\":\"primary\"},{\"label\":\"Stop\",\"style\":\"danger\"}]}]}"}]}
+
+
+////🔥 10 Conflicting Constraints Resolution Samples
+
+{"messages":[
+{"role":"user","content":"Create detailed diagnostics page with 20 charts. Resolution 800x480."},
+{"role":"assistant","content":"20 charts will not fit clearly on 800x480. Would you like a paginated design or reduce to 4 key charts?"},
+{"role":"user","content":"Reduce to 4 key charts."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"micro_hmi\",\"resolution\":{\"width\":800,\"height\":480},\"theme\":\"steel_gray\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"chart1\",\"type\":\"chart\",\"chart_type\":\"line\"},{\"id\":\"chart2\",\"type\":\"chart\",\"chart_type\":\"line\"},{\"id\":\"chart3\",\"type\":\"chart\",\"chart_type\":\"line\"},{\"id\":\"chart4\",\"type\":\"chart\",\"chart_type\":\"line\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Create 10 KPI cards on 1024x600 with large font."},
+{"role":"assistant","content":"10 large KPI cards may overcrowd 1024x600. Should I reduce to 4 large cards or keep 10 compact cards?"},
+{"role":"user","content":"4 large cards."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1024,\"height\":600},\"theme\":\"modern_flat\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"kpis\",\"type\":\"card_grid\",\"rows\":2,\"columns\":2}]}"}]}
+{"messages":[
+{"role":"user","content":"Full alarm history with 15 columns on small micro panel 800x480."},
+{"role":"assistant","content":"15 columns cannot fit legibly on 800x480. Should I reduce to essential columns (Time, Severity, Message)?"},
+{"role":"user","content":"Yes reduce."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"micro_hmi\",\"resolution\":{\"width\":800,\"height\":480},\"theme\":\"high_contrast\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"alarm_list\",\"type\":\"alarm_table\",\"columns\":[\"Time\",\"Severity\",\"Message\"],\"row_style\":\"compact\"}]}"}]}
+{"messages":[
+{"role":"user","content":"Create dark theme but use white background."},
+{"role":"assistant","content":"Dark theme and white background conflict. Should I use dark background with light text (true dark theme) or light theme instead?"},
+{"role":"user","content":"Use true dark theme."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"dashboard\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"industrial_dark\",\"layout\":\"dashboard_grid\"},\"sections\":[]}"}]}
+{"messages":[
+{"role":"user","content":"Make minimal interface but include 25 controls."},
+{"role":"assistant","content":"Minimal design conflicts with 25 controls. Should I group controls into tabs or reduce visible controls to primary actions?"},
+{"role":"user","content":"Group into tabs."},
+{"role":"assistant","content":"{\"screen\":{\"type\":\"machine_control\",\"resolution\":{\"width\":1280,\"height\":720},\"theme\":\"clean_light\",\"layout\":\"single_panel\"},\"sections\":[{\"id\":\"tab_controls\",\"type\":\"tab_panel\",\"tabs\":5}]}"}]}
+
+/////20 “intent transformation” samples (Deepseek)
+{"messages":[
+  {
+    "role":"user",
+    "content":"I need a quick overview screen for my packaging line. Show me the line speed, total produced today, and if any machines are stopped."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"production_overview\",\n    \"resolution\": { \"width\": 1280, \"height\": 720 },\n    \"theme\": \"industrial_light\",\n    \"layout\": \"header_metrics_footer\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"line_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Packaging Line 3 - Production Overview\"\n    },\n    {\n      \"id\": \"key_metrics\",\n      \"type\": \"metric_display\",\n      \"metrics\": [\n        { \"label\": \"Line Speed\", \"value\": \"85\", \"unit\": \"units/min\", \"format\": \"integer\" },\n        { \"label\": \"Today's Total\", \"value\": \"12450\", \"unit\": \"units\", \"format\": \"integer\" },\n        { \"label\": \"Target\", \"value\": \"15000\", \"unit\": \"units\", \"format\": \"integer\" }\n      ]\n    },\n    {\n      \"id\": \"machine_status\",\n      \"type\": \"status_indicator\",\n      \"machines\": [\n        { \"name\": \"Filler\", \"status\": \"running\" },\n        { \"name\": \"Capper\", \"status\": \"running\" },\n        { \"name\": \"Labeler\", \"status\": \"stopped\" },\n        { \"name\": \"Case Packer\", \"status\": \"running\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"The operators need a simple way to start and stop the pump from the HMI. Just two big buttons, green for start, red for stop. Put it on a dark background."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"pump_control\",\n    \"resolution\": { \"width\": 1024, \"height\": 600 },\n    \"theme\": \"industrial_dark\",\n    \"layout\": \"centered_content\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"pump_label\",\n      \"type\": \"static_text\",\n      \"content\": \"MAIN TRANSFER PUMP P-101\",\n      \"alignment\": \"center\",\n      \"font_size\": \"large\"\n    },\n    {\n      \"id\": \"pump_buttons\",\n      \"type\": \"button_group\",\n      \"alignment\": \"horizontal\",\n      \"buttons\": [\n        { \"label\": \"START\", \"style\": \"success\", \"size\": \"large\" },\n        { \"label\": \"STOP\", \"style\": \"danger\", \"size\": \"large\" }\n      ]\n    },\n    {\n      \"id\": \"pump_status_indicator\",\n      \"type\": \"status_light\",\n      \"label\": \"Current Status\",\n      \"status_binding\": \"pump_running\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"I want to monitor tank levels for our chemical storage area. There are 6 tanks - acid, caustic, solvent, waste, water, and additive. Show them as vertical bars with percentages."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"tank_monitoring\",\n    \"resolution\": { \"width\": 1366, \"height\": 768 },\n    \"theme\": \"chemical\",\n    \"layout\": \"grid\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"screen_title\",\n      \"type\": \"title_bar\",\n      \"title\": \"Chemical Storage Tank Farm - Levels\"\n    },\n    {\n      \"id\": \"tank_array\",\n      \"type\": \"tank_level_bank\",\n      \"tanks\": 6,\n      \"tank_labels\": [\"Acid\", \"Caustic\", \"Solvent\", \"Waste\", \"Water\", \"Additive\"],\n      \"display_type\": \"vertical_bar\",\n      \"show_percentage\": true,\n      \"alarm_low\": 20,\n      \"alarm_high\": 90,\n      \"units\": \"%\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Need a screen for the boiler room. Show steam pressure, temperature, and water level. Also need the burner on/off status and a big emergency stop button at the bottom."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"boiler_room\",\n    \"resolution\": { \"width\": 1280, \"height\": 800 },\n    \"theme\": \"high_visibility\",\n    \"layout\": \"header_body_footer\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"boiler_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Boiler #2 Control\"\n    },\n    {\n      \"id\": \"process_readings\",\n      \"type\": \"instrument_panel\",\n      \"instruments\": [\n        { \"type\": \"pressure_gauge\", \"label\": \"Steam Pressure\", \"unit\": \"psi\", \"min\": 0, \"max\": 300 },\n        { \"type\": \"temperature_display\", \"label\": \"Steam Temperature\", \"unit\": \"°F\", \"format\": \"0\" },\n        { \"type\": \"level_indicator\", \"label\": \"Water Level\", \"unit\": \"%\", \"min\": 0, \"max\": 100 }\n      ]\n    },\n    {\n      \"id\": \"burner_status\",\n      \"type\": \"binary_indicator\",\n      \"label\": \"Burner Flame\",\n      \"on_state\": \"ON\",\n      \"off_state\": \"OFF\",\n      \"status_color\": \"amber\"\n    },\n    {\n      \"id\": \"emergency_footer\",\n      \"type\": \"button_panel\",\n      \"alignment\": \"center\",\n      \"buttons\": [\n        { \"label\": \"EMERGENCY STOP\", \"style\": \"emergency\", \"size\": \"xlarge\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"We need a screen for the wastewater plant that shows influent and effluent quality. Put BOD, COD, TSS, and pH for both inlet and outlet. Use a clean blue theme."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"water_quality\",\n    \"resolution\": { \"width\": 1440, \"height\": 900 },\n    \"theme\": \"clean_blue\",\n    \"layout\": \"comparison_panel\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"plant_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Wastewater Treatment - Water Quality Monitoring\"\n    },\n    {\n      \"id\": \"inlet_quality\",\n      \"type\": \"parameter_group\",\n      \"group_name\": \"Influent (Raw)\",\n      \"parameters\": [\n        { \"name\": \"BOD\", \"value\": 220, \"unit\": \"mg/L\" },\n        { \"name\": \"COD\", \"value\": 450, \"unit\": \"mg/L\" },\n        { \"name\": \"TSS\", \"value\": 280, \"unit\": \"mg/L\" },\n        { \"name\": \"pH\", \"value\": 7.2, \"unit\": \"\" }\n      ]\n    },\n    {\n      \"id\": \"outlet_quality\",\n      \"type\": \"parameter_group\",\n      \"group_name\": \"Effluent (Treated)\",\n      \"parameters\": [\n        { \"name\": \"BOD\", \"value\": 15, \"unit\": \"mg/L\" },\n        { \"name\": \"COD\", \"value\": 85, \"unit\": \"mg/L\" },\n        { \"name\": \"TSS\", \"value\": 18, \"unit\": \"mg/L\" },\n        { \"name\": \"pH\", \"value\": 7.5, \"unit\": \"\" }\n      ]\n    },\n    {\n      \"id\": \"removal_efficiency\",\n      \"type\": \"metric_display\",\n      \"metrics\": [\n        { \"label\": \"BOD Removal\", \"value\": 93, \"unit\": \"%\" },\n        { \"label\": \"TSS Removal\", \"value\": 94, \"unit\": \"%\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"The maintenance team wants a screen showing runtime hours for all major equipment. We have 3 compressors, 2 chillers, and 4 pumps. Show hours and maintenance due status."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"maintenance_dashboard\",\n    \"resolution\": { \"width\": 1600, \"height\": 900 },\n    \"theme\": \"maintenance\",\n    \"layout\": \"equipment_list\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"dashboard_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Equipment Runtime & Maintenance Status\"\n    },\n    {\n      \"id\": \"compressor_section\",\n      \"type\": \"equipment_group\",\n      \"group_name\": \"Air Compressors\",\n      \"equipment\": [\n        { \"name\": \"Compressor 1\", \"runtime\": 12580, \"unit\": \"hours\", \"maintenance_due\": 1500 },\n        { \"name\": \"Compressor 2\", \"runtime\": 8450, \"unit\": \"hours\", \"maintenance_due\": 250 },\n        { \"name\": \"Compressor 3\", \"runtime\": 3250, \"unit\": \"hours\", \"maintenance_due\": 750 }\n      ]\n    },\n    {\n      \"id\": \"chiller_section\",\n      \"type\": \"equipment_group\",\n      \"group_name\": \"Chillers\",\n      \"equipment\": [\n        { \"name\": \"Chiller 1\", \"runtime\": 22340, \"unit\": \"hours\", \"maintenance_due\": 160 },\n        { \"name\": \"Chiller 2\", \"runtime\": 18760, \"unit\": \"hours\", \"maintenance_due\": 1240 }\n      ]\n    },\n    {\n      \"id\": \"pump_section\",\n      \"type\": \"equipment_group\",\n      \"group_name\": \"Pumps\",\n      \"equipment\": [\n        { \"name\": \"Pump P-101\", \"runtime\": 5620, \"unit\": \"hours\", \"maintenance_due\": 380 },\n        { \"name\": \"Pump P-102\", \"runtime\": 4320, \"unit\": \"hours\", \"maintenance_due\": 680 },\n        { \"name\": \"Pump P-201\", \"runtime\": 12450, \"unit\": \"hours\", \"maintenance_due\": 0 },\n        { \"name\": \"Pump P-202\", \"runtime\": 11230, \"unit\": \"hours\", \"maintenance_due\": 770 }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Build me a screen for a simple batch reactor. Show temperature, pressure, and agitator speed. Need Start Batch, Hold, and Emergency Stop buttons. Use a clean industrial theme."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"batch_reactor\",\n    \"resolution\": { \"width\": 1280, \"height\": 720 },\n    \"theme\": \"clean_industrial\",\n    \"layout\": \"header_main_footer\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"reactor_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Reactor R-101 - Batch Control\"\n    },\n    {\n      \"id\": \"process_parameters\",\n      \"type\": \"parameter_panel\",\n      \"parameters\": [\n        { \"name\": \"Temperature\", \"value\": 145, \"unit\": \"°C\", \"format\": \"0\" },\n        { \"name\": \"Pressure\", \"value\": 45, \"unit\": \"psi\", \"format\": \"0\" },\n        { \"name\": \"Agitator Speed\", \"value\": 120, \"unit\": \"RPM\", \"format\": \"0\" }\n      ]\n    },\n    {\n      \"id\": \"batch_controls\",\n      \"type\": \"button_group\",\n      \"alignment\": \"horizontal\",\n      \"buttons\": [\n        { \"label\": \"Start Batch\", \"style\": \"primary\" },\n        { \"label\": \"Hold\", \"style\": \"warning\" }\n      ]\n    },\n    {\n      \"id\": \"emergency_button\",\n      \"type\": \"button_panel\",\n      \"alignment\": \"right\",\n      \"buttons\": [\n        { \"label\": \"EMERGENCY STOP\", \"style\": \"emergency\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"I need to see all the alarms from the last 24 hours. Show them in a list with time, description, and priority. Also show a count of active alarms at the top."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"alarm_history\",\n    \"resolution\": { \"width\": 1440, \"height\": 900 },\n    \"theme\": \"alarm_management\",\n    \"layout\": \"list_view\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"alarm_header\",\n      \"type\": \"header\",\n      \"title\": \"Alarm History - Last 24 Hours\"\n    },\n    {\n      \"id\": \"alarm_summary\",\n      \"type\": \"metric_group\",\n      \"metrics\": [\n        { \"label\": \"Active Alarms\", \"value\": 3, \"severity\": \"critical\" },\n        { \"label\": \"Total Alarms (24h)\", \"value\": 47 },\n        { \"label\": \"Acknowledged\", \"value\": 42 }\n      ]\n    },\n    {\n      \"id\": \"alarm_list\",\n      \"type\": \"alarm_table\",\n      \"time_range\": \"24_hours\",\n      \"columns\": [\"Time\", \"Priority\", \"Description\", \"Status\"],\n      \"max_items\": 50,\n      \"show_acknowledge\": true\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"The operators need a screen to adjust setpoints for the HVAC system. Show current and setpoint for temperature in 4 zones. Allow them to change the setpoints."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"hvac_setpoint_control\",\n    \"resolution\": { \"width\": 1366, \"height\": 768 },\n    \"theme\": \"climate_control\",\n    \"layout\": \"zone_grid\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"hvac_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"HVAC Setpoint Control\"\n    },\n    {\n      \"id\": \"zone_controls\",\n      \"type\": \"temperature_control_grid\",\n      \"zones\": 4,\n      \"zone_names\": [\"Zone A - Offices\", \"Zone B - Lab\", \"Zone C - Warehouse\", \"Zone D - Break Room\"],\n      \"current_temps\": [72.5, 70.2, 68.0, 71.5],\n      \"setpoints\": [72.0, 70.0, 65.0, 71.0],\n      \"unit\": \"°F\",\n      \"control_type\": \"adjustable\"\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"I want to monitor energy consumption across the plant. Show total power, and break it down by production line 1, 2, and 3. Also show cost for today and this month."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"energy_monitoring\",\n    \"resolution\": { \"width\": 1600, \"height\": 900 },\n    \"theme\": \"energy\",\n    \"layout\": \"dashboard\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"energy_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Plant Energy Consumption Dashboard\"\n    },\n    {\n      \"id\": \"total_power\",\n      \"type\": \"large_metric\",\n      \"label\": \"Current Total Power\",\n      \"value\": 385,\n      \"unit\": \"kW\"\n    },\n    {\n      \"id\": \"line_breakdown\",\n      \"type\": \"meter_group\",\n      \"meters\": [\n        { \"label\": \"Production Line 1\", \"value\": 145, \"unit\": \"kW\" },\n        { \"label\": \"Production Line 2\", \"value\": 128, \"unit\": \"kW\" },\n        { \"label\": \"Production Line 3\", \"value\": 112, \"unit\": \"kW\" }\n      ]\n    },\n    {\n      \"id\": \"cost_metrics\",\n      \"type\": \"cost_panel\",\n      \"metrics\": [\n        { \"label\": \"Today's Cost\", \"value\": 1540, \"unit\": \"$\" },\n        { \"label\": \"Month-to-Date\", \"value\": 32450, \"unit\": \"$\" },\n        { \"label\": \"vs Budget\", \"value\": -2.5, \"unit\": \"%\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Need a simple start/stop screen for a conveyor system. There are 3 conveyors in sequence. Each needs its own start and stop button. Show if each conveyor is running."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"conveyor_control\",\n    \"resolution\": { \"width\": 1280, \"height\": 720 },\n    \"theme\": \"industrial\",\n    \"layout\": \"vertical_sequence\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"system_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Conveyor System - Line A Control\"\n    },\n    {\n      \"id\": \"conveyor_1\",\n      \"type\": \"motor_control_unit\",\n      \"label\": \"Conveyor CV-101 - Infeed\",\n      \"status\": \"running\",\n      \"controls\": [\"start\", \"stop\"]\n    },\n    {\n      \"id\": \"conveyor_2\",\n      \"type\": \"motor_control_unit\",\n      \"label\": \"Conveyor CV-102 - Main\",\n      \"status\": \"running\",\n      \"controls\": [\"start\", \"stop\"]\n    },\n    {\n      \"id\": \"conveyor_3\",\n      \"type\": \"motor_control_unit\",\n      \"label\": \"Conveyor CV-103 - Discharge\",\n      \"status\": \"stopped\",\n      \"controls\": [\"start\", \"stop\"]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"I need to see the status of our dust collector system. Show filter differential pressure, fan speed, and bin level. Also show when the last pulse cleaning occurred."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"dust_collector_status\",\n    \"resolution\": { \"width\": 1366, \"height\": 768 },\n    \"theme\": \"industrial\",\n    \"layout\": \"equipment_panel\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"dc_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Dust Collection System - Baghouse DC-101\"\n    },\n    {\n      \"id\": \"filter_status\",\n      \"type\": \"gauge_panel\",\n      \"gauges\": [\n        { \"type\": \"pressure\", \"label\": \"Filter ΔP\", \"value\": 4.5, \"unit\": \"in WC\", \"min\": 0, \"max\": 10 },\n        { \"type\": \"percentage\", \"label\": \"Fan Speed\", \"value\": 85, \"unit\": \"%\", \"min\": 0, \"max\": 100 },\n        { \"type\": \"percentage\", \"label\": \"Collection Bin\", \"value\": 62, \"unit\": \"%\", \"min\": 0, \"max\": 100 }\n      ]\n    },\n    {\n      \"id\": \"cleaning_info\",\n      \"type\": \"info_panel\",\n      \"items\": [\n        { \"label\": \"Last Pulse Cleaning\", \"value\": \"12:35 PM\" },\n        { \"label\": \"Cleaning Mode\", \"value\": \"Auto\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"The lab needs a screen showing the pure water system. Show conductivity, temperature, and flow rate for the distribution loop. Also show tank level for the storage tank."
+  },
+  {
+    "role":"assistant", 
+    "content":"{\n  \"screen\": {\n    \"type\": \"pure_water_system\",\n    \"resolution\": { \"width\": 1280, \"height\": 720 },\n    \"theme\": \"lab_clean\",\n    \"layout\": \"system_diagram\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"water_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Purified Water System - Loop Status\"\n    },\n    {\n      \"id\": \"storage_tank\",\n      \"type\": \"tank_level\",\n      \"label\": \"Storage Tank T-101\",\n      \"level\": 72,\n      \"unit\": \"%\",\n      \"volume\": 450,\n      \"volume_unit\": \"L\"\n    },\n    {\n      \"id\": \"loop_parameters\",\n      \"type\": \"parameter_grid\",\n      \"parameters\": [\n        { \"name\": \"Distribution Loop\", \"subitems\": [\n          { \"name\": \"Conductivity\", \"value\": 0.85, \"unit\": \"µS/cm\" },\n          { \"name\": \"Temperature\", \"value\": 22.5, \"unit\": \"°C\" },\n          { \"name\": \"Flow Rate\", \"value\": 45, \"unit\": \"L/min\" }\n        ]}\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"I want a simple screen for the compressed air system. Show header pressure, dew point, and which compressors are running. We have 3 compressors total."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"compressed_air\",\n    \"resolution\": { \"width\": 1280, \"height\": 720 },\n    \"theme\": \"industrial_light\",\n    \"layout\": \"header_body\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"air_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Compressed Air System Overview\"\n    },\n    {\n      \"id\": \"system_parameters\",\n      \"type\": \"metric_display\",\n      \"metrics\": [\n        { \"label\": \"Header Pressure\", \"value\": 105, \"unit\": \"psi\" },\n        { \"label\": \"Dew Point\", \"value\": -40, \"unit\": \"°F\" }\n      ]\n    },\n    {\n      \"id\": \"compressor_status\",\n      \"type\": \"status_grid\",\n      \"items\": [\n        { \"label\": \"Compressor 1\", \"status\": \"running\" },\n        { \"label\": \"Compressor 2\", \"status\": \"running\" },\n        { \"label\": \"Compressor 3\", \"status\": \"standby\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"We need a shift handover screen showing production totals for the last shift and current shift. Show good parts, rejects, and efficiency for each shift."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"shift_handover\",\n    \"resolution\": { \"width\": 1440, \"height\": 900 },\n    \"theme\": \"production\",\n    \"layout\": \"comparison\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"handover_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Shift Performance Report\"\n    },\n    {\n      \"id\": \"previous_shift\",\n      \"type\": \"shift_summary\",\n      \"shift_name\": \"Night Shift (10pm-6am)\",\n      \"date\": \"2024-01-15\",\n      \"metrics\": [\n        { \"label\": \"Good Parts\", \"value\": 8450 },\n        { \"label\": \"Rejects\", \"value\": 125 },\n        { \"label\": \"Efficiency\", \"value\": 92, \"unit\": \"%\" }\n      ]\n    },\n    {\n      \"id\": \"current_shift\",\n      \"type\": \"shift_summary\",\n      \"shift_name\": \"Day Shift (6am-2pm)\",\n      \"date\": \"2024-01-16\",\n      \"metrics\": [\n        { \"label\": \"Good Parts\", \"value\": 3250, \"trend\": \"partial\" },\n        { \"label\": \"Rejects\", \"value\": 42, \"trend\": \"partial\" },\n        { \"label\": \"Efficiency\", \"value\": 94, \"unit\": \"%\", \"trend\": \"partial\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Create a screen to monitor the cooling tower. Show fan status for 3 cells, basin level, supply and return water temperatures. Use a blue theme."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"cooling_tower_monitor\",\n    \"resolution\": { \"width\": 1366, \"height\": 768 },\n    \"theme\": \"blue_water\",\n    \"layout\": \"cell_array\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"tower_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Cooling Tower CT-101 - Status\"\n    },\n    {\n      \"id\": \"temperature_readings\",\n      \"type\": \"temperature_panel\",\n      \"readings\": [\n        { \"label\": \"Supply Water\", \"value\": 85, \"unit\": \"°F\" },\n        { \"label\": \"Return Water\", \"value\": 95, \"unit\": \"°F\" },\n        { \"label\": \"Approach\", \"value\": 8, \"unit\": \"°F\" }\n      ]\n    },\n    {\n      \"id\": \"basin_level\",\n      \"type\": \"level_indicator\",\n      \"label\": \"Basin Level\",\n      \"value\": 72,\n      \"unit\": \"%\",\n      \"min\": 0,\n      \"max\": 100\n    },\n    {\n      \"id\": \"fan_status\",\n      \"type\": \"fan_cells\",\n      \"cells\": 3,\n      \"fan_names\": [\"Cell A\", \"Cell B\", \"Cell C\"],\n      \"fan_statuses\": [\"running\", \"running\", \"off\"],\n      \"fan_speeds\": [85, 70, 0]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"I need to see the status of our packaging line's critical sensors. Show 8 photoeyes, their current state (blocked/clear), and if any have failed."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"sensor_status\",\n    \"resolution\": { \"width\": 1280, \"height\": 720 },\n    \"theme\": \"industrial\",\n    \"layout\": \"grid\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"sensor_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Packaging Line Sensors - Status Overview\"\n    },\n    {\n      \"id\": \"sensor_grid\",\n      \"type\": \"sensor_array\",\n      \"sensors\": 8,\n      \"sensor_names\": [\"PE-101 Infeed\", \"PE-102 Lane A\", \"PE-103 Lane B\", \"PE-104 Merge\", \"PE-105 Reject\", \"PE-106 Counter\", \"PE-107 Exit\", \"PE-108 Palletizer\"],\n      \"sensor_states\": [\"blocked\", \"clear\", \"clear\", \"blocked\", \"blocked\", \"clear\", \"clear\", \"clear\"],\n      \"sensor_health\": [\"good\", \"good\", \"good\", \"good\", \"good\", \"good\", \"fault\", \"good\"]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"Build a screen showing the status of our water treatment chemical feed pumps. There are 4 pumps - polymer, caustic, acid, and chlorine. Show run status and flow rate for each."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"chemical_feed\",\n    \"resolution\": { \"width\": 1366, \"height\": 768 },\n    \"theme\": \"water_treatment\",\n    \"layout\": \"pump_list\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"chemical_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Chemical Feed System - Pump Status\"\n    },\n    {\n      \"id\": \"pump_status_list\",\n      \"type\": \"pump_array\",\n      \"pumps\": [\n        { \"name\": \"Polymer Pump P-201\", \"status\": \"running\", \"flow\": 12.5, \"flow_unit\": \"GPH\" },\n        { \"name\": \"Caustic Pump P-202\", \"status\": \"running\", \"flow\": 25.0, \"flow_unit\": \"GPH\" },\n        { \"name\": \"Acid Pump P-203\", \"status\": \"standby\", \"flow\": 0, \"flow_unit\": \"GPH\" },\n        { \"name\": \"Chlorine Pump P-204\", \"status\": \"running\", \"flow\": 8.2, \"flow_unit\": \"GPH\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"The warehouse needs a screen showing inventory levels for 5 bulk storage bins. Show percentage full and estimated time until empty at current usage rates."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"inventory_monitor\",\n    \"resolution\": { \"width\": 1440, \"height\": 900 },\n    \"theme\": \"warehouse\",\n    \"layout\": \"bin_grid\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"inventory_header\",\n      \"type\": \"title_bar\",\n      \"title\": \"Bulk Storage Inventory - Warehouse A\"\n    },\n    {\n      \"id\": \"bin_status\",\n      \"type\": \"bin_array\",\n      \"bins\": 5,\n      \"bin_names\": [\"Raw Material A\", \"Raw Material B\", \"Packaging\", \"Finished Goods\", \"Waste\"],\n      \"levels\": [85, 42, 63, 91, 28],\n      \"level_unit\": \"%\",\n      \"time_remaining\": [\"24 hours\", \"8 hours\", \"15 hours\", \"36 hours\", \"N/A\"]\n    }\n  ]\n}"
+  }
+]}
+
+{"messages":[
+  {
+    "role":"user",
+    "content":"I need a simple screen for the boiler operator. Show flame status, steam pressure, and water level. Use green/red indicators for status. Keep it simple and clear."
+  },
+  {
+    "role":"assistant",
+    "content":"{\n  \"screen\": {\n    \"type\": \"boiler_basic\",\n    \"resolution\": { \"width\": 1024, \"height\": 600 },\n    \"theme\": \"simple_clarity\",\n    \"layout\": \"centered\"\n  },\n  \"sections\": [\n    {\n      \"id\": \"boiler_title\",\n      \"type\": \"static_text\",\n      \"content\": \"BOILER #1 STATUS\",\n      \"font_size\": \"xlarge\"\n    },\n    {\n      \"id\": \"critical_indicators\",\n      \"type\": \"indicator_panel\",\n      \"indicators\": [\n        { \"label\": \"Flame\", \"status\": \"on\", \"on_color\": \"green\", \"off_color\": \"red\" },\n        { \"label\": \"Steam Pressure\", \"status\": \"normal\", \"value\": 125, \"unit\": \"psi\" },\n        { \"label\": \"Water Level\", \"status\": \"normal\", \"value\": 65, \"unit\": \"%\" }\n      ]\n    }\n  ]\n}"
+  }
+]}
